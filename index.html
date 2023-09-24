@@ -143,8 +143,8 @@ div.desc {
     padding: 15px;
     text-align: center;
 }
-    
 </style>
+
 <head>
     <title>Invitation Page</title>
 </head>
@@ -156,77 +156,48 @@ div.desc {
         </div>
         <nav>
             <ul class="topnav">
-                <li><a href="index.html">Home</a>
+                <li><a href="index.html" class="active">Home</a>
                 </li>
                 <li><a href="invitation.html">Invitation</a>
                 </li>
-                <li><a href="gallery.html"  class="active">Gallery</a>
+                <li><a href="gallery.html">Gallery</a>
                 </li>
                 <li><a href="registration.html">Registration</a>
                 </li>
             </ul>
-
-        </nav>
+        </nav> 
     </header>
-<section id="gallery">
-    <div class="gallery">
-        <img id="firefighter" src=".\images\firefighter.png" width="300" height="200" alt="hover" />
-        <div class="desc">Firefighter after work</div>
-    </div>
-
-<div class="gallery">
-    <img id="work" src=".\images\work.png" width="300" height="200" alt="hover" />
-    <div class="desc">Birthday Planning</div>
-</div>
-
-<div class="gallery">
-    <img id="silhouette" src=".\images\silhouette.png" width="300" height="200" alt="hover" />
-    <div class="desc">Silhouettes</div>
-</div>
-
-<div class="gallery">
-    <img id="dance" src=".\images\dance.png" width="300" height="200" alt="hover" />
-  <div class="desc">Wedding dance</div>
-</div>
-</section>
-
-<script>
- document.getElementById("firefighter").addEventListener("mouseover", bigImg);
- document.getElementById("firefighter").addEventListener("mouseout", normalImg);
- document.getElementById("work").addEventListener("mouseover", bigImg);
- document.getElementById("work").addEventListener("mouseout", normalImg);
- document.getElementById("silhouette").addEventListener("mouseover", bigImg);
- document.getElementById("silhouette").addEventListener("mouseout", normalImg);
- document.getElementById("dance").addEventListener("mouseover", bigImg);
- document.getElementById("dance").addEventListener("mouseout", normalImg);
+    <section id="bannerImages">
+	Banner Images<br/>        
+    </section>
+ <script>
+    var i = 0;
+    var images = [];
+    var time = 3000;
+     
+    images[0] = 'images/volunteer.png';
+    images[1] = 'images/coffee.png';
+    images[2] = 'images/join.png';
+     
+function changeImg() {
+    document.slide.src = images[i];
     
-    function bigImg() {
-        firefighter.style.height="200px";
-        firefighter.style.width="200px";
-        work.style.height="200px";
-        work.style.width="200px";
-        silhouette.style.height="200x";
-        silhouette.style.width="200px";
-        dance.style.height="200px";
-        dance.style.width="200px";
-    }
-    function normalImg() {
-       firefighter.style.height= "100px";
-       firefighter.style.width= "100px";
-       work.style.height= "100px";
-       work.style.width= "100px";
-       silhouette.style.height= "100px";
-       silhouette.style.width= "100px";
-       dance.style.height= "100px";
-       dance.style.width= "100px";
-       
-    }
-window.onload = normalImg;
-</script>
+    if(i < images.length - 1) {
+       i++
+       } else {
+           i = 0;
+       }
+    
+    setTimeout("changeImg()", time);
+}
 
+window.onload = changeImg;
+</script>  
+    
+<img name="slide" width="400" height="200">
+    
     <footer>This events site is for IT-FP3215 tasks.
     </footer>
 </body>
 
 </html>
-
